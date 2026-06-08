@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>INVENTARIO 2026 · 부스 가이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+@font-face{font-family:'Kkukkuk';src:url('./MemomentKkukkukk.ttf') format('truetype')}
+
+/* ── 색상 변수 ── */
+:root{
+  --zs:#F080A0; --zw:#70C8F0; --zwk:#F0C800;
+  --zd:#60C080; --zp:#4080D0; --zo:#606060;
+  --zk:#40C0B8; --zc:#A0A0A0;
+}
+[data-theme=white]{
+  --bg:#fff;--sf:#fff;--sf2:#f3f3f3;
+  --tx:#0f0f0f;--tx2:#505050;--tx3:#aaa;--br:#e8e8e8;
+  --ac:#0f0f0f;--as:#efefef;--nav:#ffffffee;
+  --csh:0 1px 5px rgba(0,0,0,.07);
+  --hg:linear-gradient(150deg,#fff 0%,#f8f8f8 100%);
+}
+[data-theme=black]{
+  --bg:#080808;--sf:#111;--sf2:#1a1a1a;
+  --tx:#f0ece4;--tx2:#787878;--tx3:#404040;--br:#222;
+  --ac:#e8d5b0;--as:#1c180e;--nav:#080808ee;
+  --csh:0 2px 12px rgba(0,0,0,.6);
+  --hg:linear-gradient(150deg,#0d0d0d 0%,#080808 100%);
+}
+[data-theme=pastel]{
+  --bg:#fff;--sf:#fff;--sf2:#fff0f5;
+  --tx:#2a1828;--tx2:#80506a;--tx3:#c098b0;--br:#f0d0e0;
+  --ac:#c05080;--as:#ffe8f0;--nav:#ffffffee;
+  --csh:0 2px 8px rgba(200,60,100,.06);
+  --hg:linear-gradient(150deg,#fff 0%,#fff0f5 60%,#ffe8f2 100%);
+  --zs:#F4A0B8;--zw:#90D0F4;--zwk:#F8DC70;
+  --zd:#80CC98;--zp:#78A4E0;--zo:#909090;
+  --zk:#70D0C8;--zc:#C0C0C0;
+}
+[data-theme=pastel]::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(ellipse 90% 60% at 18% 22%,rgba(255,140,185,.25) 0%,transparent 55%),
+             radial-gradient(ellipse 70% 85% at 78% 70%,rgba(255,160,200,.2) 0%,transparent 55%);
+}
+
+/* ── 리셋 ── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;transition:background .3s,color .3s}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:300;background:var(--nav);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--br);padding:0 1.25rem;height:52px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Kkukkuk','Pretendard',sans-serif;font-size:17px;letter-spacing:.06em;color:var(--tx);cursor:pointer}
+.nav-r{display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:1px}
+.nl{padding:5px 10px;border-radius:999px;background:transparent;border:none;color:var(--tx3);font-size:12px;cursor:pointer;font-family:inherit;transition:all .15s;min-height:44px;display:flex;align-items:center}
+.nl:hover{color:var(--tx);background:var(--sf2)}
+.tdw{position:relative}
+.tdb{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:999px;border:1px solid var(--br);background:var(--sf);color:var(--tx2);font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap;min-height:36px}
+.tdb:hover{background:var(--sf2)}
+.tsw{width:8px;height:8px;border-radius:50%}
+.tdm{display:none;position:absolute;top:calc(100% + 5px);right:0;background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:5px;min-width:120px;box-shadow:0 8px 28px rgba(0,0,0,.14);z-index:400}
+.tdw:hover .tdm,.tdw:focus-within .tdm{display:block}
+.topt{display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--tx2);min-height:44px}
+.topt:hover{background:var(--sf2);color:var(--tx)}
+.topt.on{color:var(--ac);font-weight:600}
+.tdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* ── MAIN ── */
+main{max-width:1020px;margin:0 auto;padding:0 1.25rem 6rem}
+
+/* ── HERO ── */
+#hero{text-align:center;padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--br);margin-bottom:1.75rem;background:var(--hg);border-radius:0 0 16px 16px}
+.hero-sub{font-size:10px;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:.6rem}
+.hero-title{font-family:'Kkukkuk','Pretendard',sans-serif;font-size:clamp(1.8rem,6vw,3.2rem);letter-spacing:.1em;color:var(--tx);margin-bottom:.4rem;cursor:pointer;transition:opacity .2s}
+.hero-title:hover{opacity:.6}
+.hero-div{width:28px;height:1px;background:var(--br);margin:.75rem auto}
+.hero-info{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:12px;color:var(--tx2)}
+.hi{display:flex;align-items:center;gap:4px}
+.hi strong{color:var(--tx);font-weight:500}
+.stat-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:1.25rem}
+.sstat{display:flex;align-items:center;gap:5px;padding:6px 15px;border-radius:999px;background:var(--sf);border:1px solid var(--br);color:var(--tx2);font-size:12px;cursor:pointer;font-family:inherit;transition:all .18s;box-shadow:var(--csh);min-height:44px}
+.sstat:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-1px)}
+.sstat.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.sstat strong{font-weight:700}
+
+/* ── SECTION TITLE ── */
+.st{font-family:'Kkukkuk','Pretendard',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--tx);margin-bottom:.875rem;display:flex;align-items:center;gap:9px}
+.st::after{content:'';flex:1;height:1px;background:var(--br)}
+
+/* ── 카테고리 칩 ── */
+.cat-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.chip{display:flex;align-items:center;gap:4px;padding:6px 13px;border-radius:999px;border:1px solid var(--br);background:var(--sf);color:var(--tx2);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap;min-height:36px}
+.chip:hover{background:var(--sf2);color:var(--tx)}
+.chip.on{color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.cdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* ── MAP ── */
+#sec-map{margin-bottom:2rem}
+.map-outer{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:1rem;overflow:hidden;box-shadow:var(--csh)}
+.map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.map-legend{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--br)}
+.mleg{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--tx2)}
+.mlegdot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* 이미지+히트박스 */
+.map-wrap{position:relative;min-width:700px;aspect-ratio:2126/692}
+.map-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;border-radius:6px;pointer-events:none}
+
+/* ── 히트박스 (투명 클릭 영역만) ── */
+.hb{
+  position:absolute;cursor:pointer;
+  background:transparent;border:none;
+  border-radius:3px;z-index:2;
+  transition:background .12s,box-shadow .12s;
+  /* 최소 터치 영역 보장 */
+  min-width:44px;min-height:44px;
+}
+.hb:hover{background:rgba(255,255,255,.2);box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}
+[data-theme=black] .hb:hover{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 2px rgba(255,255,255,.5)}
+/* 찜한 부스 */
+.hb.fav{box-shadow:inset 0 0 0 2.5px gold;background:rgba(255,210,0,.15)}
+/* dim - 카테고리 필터 시 비해당 부스 어둡게 */
+.hb.dim{background:rgba(0,0,0,.45);pointer-events:none}
+[data-theme=pastel] .hb.dim{background:rgba(100,50,80,.35)}
+/* 검색 하이라이트 */
+@keyframes hlt{0%,100%{box-shadow:inset 0 0 0 3px #FFD400,0 0 0 0 #FFD40000}50%{box-shadow:inset 0 0 0 3px #FFD400,0 0 8px 4px #FFD40066}}
+.hb.search-hl{animation:hlt .5s ease-in-out 5;background:rgba(255,212,0,.18)}
+/* KIOSK 타원 */
+.hb.oval{border-radius:50%}
+
+/* ── 찜한 브랜드 ── */
+#sec-fav{margin-bottom:2rem}
+.fav-empty{text-align:center;padding:1.5rem;color:var(--tx3);font-size:13px;background:var(--sf);border:1px dashed var(--br);border-radius:12px;line-height:1.8}
+.fav-list{display:flex;flex-wrap:wrap;gap:8px}
+.fav-chip{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--sf2);border:1px solid var(--br);font-size:13px;color:var(--tx);cursor:pointer;transition:all .15s;min-height:44px}
+.fav-chip:hover{border-color:gold;background:rgba(255,210,0,.1)}
+.fav-dot{width:7px;height:7px;border-radius:50%}
+
+/* ── 검색 ── */
+#sec-search{margin-bottom:2rem}
+.sbox{position:relative}
+.sbox input{width:100%;padding:14px 16px 14px 46px;border-radius:14px;border:1px solid var(--br);background:var(--sf);color:var(--tx);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;box-shadow:var(--csh);-webkit-appearance:none}
+.sbox input:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--as)}
+.sbox input::placeholder{color:var(--tx3)}
+.sico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--tx3);font-size:16px;pointer-events:none}
+.sclr{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--tx3);cursor:pointer;font-size:18px;display:none;line-height:1;min-width:44px;min-height:44px;display:none;align-items:center;justify-content:center}
+
+/* ── 브랜드 목록 ── */
+#sec-brands{margin-bottom:2.5rem}
+.zblock{margin-bottom:1.75rem}
+.zhdr{display:flex;align-items:center;gap:8px;margin-bottom:.75rem;padding-bottom:7px;border-bottom:1px solid var(--br)}
+.zhdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.zhname{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--tx2)}
+.zhcnt{font-size:11px;color:var(--tx3);margin-left:auto}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:7px}
+.bcard{background:var(--sf);border:1px solid var(--br);border-radius:11px;padding:13px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden;box-shadow:var(--csh)}
+.bcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--zc,var(--br));border-radius:11px 11px 0 0}
+.bcard:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(0,0,0,.1)}
+.bcard.fav{border-color:gold;box-shadow:0 0 0 1.5px gold}
+.bcard.dim-brand{opacity:.2;pointer-events:none}
+.bc-booth{font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.bc-kr{font-size:13px;font-weight:500;color:var(--tx);line-height:1.3;margin-bottom:2px}
+.bc-en{font-size:10.5px;color:var(--tx3);line-height:1.3;margin-bottom:9px}
+.bc-acts{display:flex;gap:4px}
+.bc-btn{flex:1;padding:7px 0;border-radius:7px;border:1px solid var(--br);background:transparent;color:var(--tx3);font-size:11px;cursor:pointer;font-family:inherit;transition:all .13s;min-height:36px}
+.bc-btn:hover{background:var(--sf2);color:var(--tx)}
+.bc-btn.on{background:#fef0f3;color:var(--zs);border-color:var(--zs)}
+[data-theme=black] .bc-btn.on{background:#2a1018}
+
+/* ── FAB ── */
+.fab{position:fixed;bottom:20px;right:16px;z-index:250;width:60px;height:60px;border-radius:50%;background:var(--sf);color:var(--tx2);border:1px solid var(--br);font-size:24px;cursor:pointer;box-shadow:0 2px 14px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.fab:hover{transform:scale(1.1)}
+.fab-badge{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;border-radius:999px;background:var(--zs);color:#fff;font-size:10px;font-weight:700;display:none;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--bg)}
+.fab-badge.show{display:flex}
+
+/* ── 메모 시트 ── */
+.sheet-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:400;align-items:flex-end;justify-content:center}
+.sheet-ov.open{display:flex}
+.sheet{background:var(--sf);border-radius:18px 18px 0 0;padding:.875rem 1.25rem 2.5rem;width:100%;max-width:580px;max-height:80vh;overflow-y:auto;border-top:1px solid var(--br);box-shadow:0 -6px 32px rgba(0,0,0,.14)}
+.sheet-handle{width:30px;height:3px;border-radius:2px;background:var(--br);margin:0 auto .875rem}
+.sheet-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.sheet-title{font-family:'Kkukkuk','Pretendard',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--tx)}
+.sheet-x{background:none;border:none;color:var(--tx3);font-size:20px;cursor:pointer;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.memo-add{display:flex;gap:7px;margin-bottom:1rem}
+.memo-add input{flex:1;padding:12px;border-radius:10px;border:1px solid var(--br);background:var(--bg);color:var(--tx);font-size:14px;font-family:inherit;outline:none;-webkit-appearance:none}
+.memo-add input:focus{border-color:var(--ac)}
+.memo-add input::placeholder{color:var(--tx3)}
+.madd{padding:12px 18px;border-radius:10px;background:var(--tx);color:var(--bg);border:none;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;transition:opacity .2s;min-height:44px;white-space:nowrap}
+.madd:hover{opacity:.8}
+.memo-list{display:flex;flex-direction:column;gap:7px}
+.memo-item{display:flex;align-items:center;gap:10px;padding:12px;background:var(--sf2);border-radius:10px}
+.memo-chk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--br);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .15s;background:transparent}
+.memo-chk.done{background:var(--zd);border-color:var(--zd);color:#fff}
+.memo-brand{font-size:10px;font-weight:600;padding:2px 7px;border-radius:999px;color:#fff;margin-bottom:2px;display:inline-block}
+.memo-txt{font-size:13px;color:var(--tx);line-height:1.4}
+.memo-txt.done{text-decoration:line-through;color:var(--tx3)}
+.memo-del{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:16px;margin-left:auto;flex-shrink:0;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.memo-del:hover{color:#e03030}
+.memo-empty{text-align:center;padding:2rem;color:var(--tx3);font-size:13px}
+
+/* ── 브랜드 모달 ── */
+.mov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:1rem}
+.mov.open{display:flex}
+.mdlg{background:var(--sf);border-radius:18px;padding:1.5rem;max-width:380px;width:100%;border:1px solid var(--br);max-height:90vh;overflow-y:auto;box-shadow:0 16px 55px rgba(0,0,0,.22);animation:su .2s ease}
+@keyframes su{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.m-close-row{display:flex;justify-content:flex-end;margin-bottom:.5rem}
+.m-close{background:none;border:none;color:var(--tx3);font-size:22px;cursor:pointer;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.m-close:hover{background:var(--sf2)}
+.m-cat-tag{display:inline-block;font-size:11px;padding:4px 12px;border-radius:999px;margin-bottom:.875rem;font-weight:600}
+.m-booth{font-size:12px;font-weight:700;letter-spacing:.1em;margin-bottom:.5rem}
+.m-brand{font-family:'Kkukkuk','Pretendard',sans-serif;font-size:22px;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.m-brand-en{font-size:13px;color:var(--tx3);margin-bottom:1.25rem}
+.m-actions{display:flex;flex-direction:column;gap:8px;margin-top:1.25rem}
+.m-btn{width:100%;padding:14px;border-radius:11px;border:1px solid var(--br);background:transparent;color:var(--tx2);font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;transition:all .15s;min-height:48px;display:flex;align-items:center;justify-content:center;gap:7px}
+.m-btn:hover{background:var(--sf2)}
+.m-btn.primary{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.m-btn.fav-on{background:#fef0f3;color:var(--zs);border-color:var(--zs)}
+[data-theme=black] .m-btn.fav-on{background:#2a1018}
+.m-btn.ig{background:#E1306C;color:#fff;border-color:#E1306C}
+.m-btn.ig:hover{opacity:.85}
+
+.bcard.dim-b{opacity:.2;pointer-events:none}
+.nores{text-align:center;padding:2.5rem;color:var(--tx3);font-size:14px}
+
+/* ── 모바일 ── */
+@media(max-width:600px){
+  nav{padding:0 .875rem}
+  .nav-links{display:none}
+  main{padding:0 .875rem 5rem}
+  .cgrid{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:1.8rem}
+  .hero-info{gap:.875rem;font-size:11px}
+  .memo-add{flex-wrap:wrap}
+  .hb{min-width:36px;min-height:36px}
+}
+</style>
+</head>
+<body data-theme="white">
+
+<nav>
+  <div class="logo" onclick="goTop()">INVENTARIO 2026</div>
+  <div class="nav-r">
+    <div class="nav-links">
+      <button class="nl" onclick="goSec('sec-map')">배치도</button>
+      <button class="nl" onclick="goSec('sec-fav')">찜</button>
+      <button class="nl" onclick="goSec('sec-search')">검색</button>
+      <button class="nl" onclick="goSec('sec-brands')">브랜드</button>
+    </div>
+    <div class="tdw">
+      <button class="tdb"><div class="tsw" id="tsw"></div><span id="tlbl">🎨</span><span style="font-size:9px;color:var(--tx3)">▾</span></button>
+      <div class="tdm">
+        <div class="topt" data-t="white" onclick="setTheme('white')"><div class="tdot" style="background:#e0e0e0"></div>White</div>
+        <div class="topt" data-t="black" onclick="setTheme('black')"><div class="tdot" style="background:#1c1c1c"></div>Black</div>
+        <div class="topt" data-t="pastel" onclick="setTheme('pastel')"><div class="tdot" style="background:#ffb8d0"></div>Pastel</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<section id="hero">
+  <div class="hero-sub">현장 부스 가이드</div>
+  <div class="hero-title" onclick="goTop()">INVENTARIO 2026</div>
+  <div class="hero-div"></div>
+  <div class="hero-info">
+    <div class="hi">📅 <strong>6.10 — 6.14</strong></div>
+    <div class="hi">⏰ 평일·토 <strong>11–19시</strong> / 일 <strong>11–18시</strong></div>
+    <div class="hi">📍 <strong>코엑스 더플라츠 1&amp;2</strong></div>
+  </div>
+  <div class="stat-row">
+    <button class="sstat" id="sb-fav" onclick="goSec('sec-fav')">⭐ 찜 <strong id="cnt-fav">0</strong>개</button>
+    <button class="sstat" onclick="openMemo()">📝 메모 <strong id="cnt-memo">0</strong>개</button>
+  </div>
+</section>
+
+<!-- ① 배치도 -->
+<section id="sec-map" style="margin-bottom:2rem">
+  <div class="st">배치도</div>
+  <div class="cat-row" id="map-cats"></div>
+  <!-- Hall 레이블 -->
+  <div style="display:flex;justify-content:space-around;padding:0 4px;margin-bottom:6px">
+    <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--tx3)">← PLATZ HALL 2</span>
+    <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--tx3)">LOUNGE</span>
+    <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--tx3)">PLATZ HALL 1 →</span>
+  </div>
+  <div class="map-outer">
+    <div class="map-legend" id="map-legend"></div>
+    <div class="map-scroll">
+      <div class="map-wrap" id="map-wrap">
+        <img src="./inventario_map.jpg" alt="INVENTARIO 2026 배치도" draggable="false">
+        <div id="hitboxes"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:var(--tx3);text-align:center;margin-top:7px">부스 터치 → 상세 정보 | 찜한 부스는 ⭐ 테두리로 표시</p>
+</section>
+
+<!-- ② 찜한 브랜드 -->
+<section id="sec-fav" style="margin-bottom:2rem">
+  <div class="st">찜한 브랜드</div>
+  <div id="fav-area"><div class="fav-empty">아직 찜한 부스가 없어요 ⭐<br><span style="font-size:12px;margin-top:4px;display:block">부스를 눌러서 ☆ 찜 버튼을 눌러보세요</span></div></div>
+</section>
+
+<!-- ③ 검색 -->
+<section id="sec-search" style="margin-bottom:2rem">
+  <div class="st">검색</div>
+  <div class="sbox">
+    <span class="sico">🔍</span>
+    <input type="search" id="search-inp" placeholder="브랜드명 · 영문명 · 부스번호 · 초성 검색" oninput="onSearch(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="sclr" id="sclr" onclick="clearSearch()" style="display:none">×</button>
+  </div>
+  <div id="search-results"></div>
+</section>
+
+<!-- ④ 전체 브랜드 -->
+<section id="sec-brands" style="margin-bottom:2.5rem">
+  <div class="st">전체 브랜드</div>
+  <div class="cat-row" id="brand-cats"></div>
+  <div id="brand-board"></div>
+</section>
+
+</main>
+
+<!-- FAB -->
+<button class="fab" onclick="openMemo()" title="쇼핑 메모">📝<div class="fab-badge" id="fab-badge">0</div></button>
+
+<!-- 메모 시트 -->
+<div class="sheet-ov" id="memo-ov" onclick="if(event.target===this)closeMemo()">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-hdr">
+      <div class="sheet-title">📝 쇼핑 메모</div>
+      <button class="sheet-x" onclick="closeMemo()">✕</button>
+    </div>
+    <div class="memo-add">
+      <input type="text" id="memo-inp" placeholder="구매할 것, 확인할 것..." onkeydown="if(event.key==='Enter')addMemo()">
+      <button class="madd" onclick="addMemo()">추가</button>
+    </div>
+    <div class="memo-list" id="memo-list"><div class="memo-empty">메모가 없어요 📝</div></div>
+  </div>
+</div>
+
+<!-- 브랜드 모달 -->
+<div class="mov" id="modal-ov" onclick="if(event.target===this)closeModal()">
+  <div class="mdlg">
+    <div class="m-close-row"><button class="m-close" onclick="closeModal()">✕</button></div>
+    <div class="m-cat-tag" id="m-cat"></div>
+    <div class="m-booth" id="m-booth"></div>
+    <div class="m-brand" id="m-brand"></div>
+    <div class="m-brand-en" id="m-brand-en"></div>
+    <div class="m-actions" id="m-actions"></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════
+   카테고리 색상
+══════════════════════════════════════════════ */
+const CAT_COLOR = {
+  'SMALL THING':        '#F080A0',
+  'WRITING & DRAWING':  '#70C8F0',
+  'WORKSHOP & SHOWCASE':'#F0C800',
+  'DAILY FINDS':        '#60C080',
+  'PAPER':              '#4080D0',
+  'OFFICE & DESK':      '#606060',
+  'KIOSK':              '#40C0B8',
+  'COMMON':             '#A0A0A0',
+};
+const CATS = ['ALL', ...Object.keys(CAT_COLOR)];
+
+/* ══════════════════════════════════════════════
+   부스 데이터
+   { booth, brand, brandEn, category, instagram, hall }
+   brand: string 또는 string[] (복수 브랜드)
+══════════════════════════════════════════════ */
+const booths = [
+  // ── SMALL THING ─────────────────────────────
+  {booth:'A02', brand:'mt × 롤드페인트',      brandEn:'mt × rolledpaint',            category:'SMALL THING',        instagram:'', hall:'HALL2'},
+  {booth:'B02', brand:'거울옆토스트가즈아',    brandEn:'LIMPA LIMPA',                 category:'SMALL THING',        instagram:'', hall:'HALL2'},
+  {booth:'B03', brand:'후르츠추러이',          brandEn:'FRUITFRIES',                  category:'SMALL THING',        instagram:'', hall:'HALL2'},
+  {booth:'B06', brand:'이와코',               brandEn:'IWAKO',                       category:'SMALL THING',        instagram:'', hall:'HALL2'},
+  {booth:'C03', brand:'하우필리소클럽',        brandEn:'HWF.RISOCLUB',               category:'SMALL THING',        instagram:'', hall:'HALL2'},
+  {booth:'E03', brand:'구버',                 brandEn:'GOOBER',                      category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'E05', brand:['미씨아','리라'],       brandEn:['MICIA','LYRA'],              category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'F01', brand:'라이프앤피시스',        brandEn:'LIFE&PIECES',                 category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'F03', brand:'이로하',               brandEn:'IROHA',                       category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'F07', brand:'플래그',               brandEn:'FLAGG',                       category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'F08', brand:'쏨무드디자인',          brandEn:'SOME MOOD DESIGN',            category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'F09', brand:'보키',                 brandEn:'BOKI',                        category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'G03', brand:'수키도키',             brandEn:'SUKEYDOKEY',                  category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'G06', brand:'아무개씨',             brandEn:'AHMUGAE_C',                   category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'G07', brand:'산비',                 brandEn:'SANBY',                       category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'H02', brand:'0.1',                  brandEn:'0.1',                         category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'H05', brand:'미니모니',             brandEn:'MINIMONI',                    category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'H06', brand:['히토토키','레이메이 펩트','우디'], brandEn:['HITOTOKI','RAYMAY KEPT','WOODHI'], category:'SMALL THING', instagram:'', hall:'HALL1'},
+  {booth:'H07', brand:'프레젠트프레젠트',      brandEn:'PRESENT PRESENT',             category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'H09', brand:'키오스크키오스크',      brandEn:'KIOSSKIOSK',                  category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'I08', brand:'리들템포디자인',        brandEn:'LITTLE TEMPO DESIGN',         category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'I09', brand:'아이코닉',             brandEn:'ICONIC',                      category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'J03', brand:'프렐루드스튜디오',      brandEn:'PRELUDE STUDIO',              category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'J09', brand:'노낫네버',             brandEn:'NO NOT NEVER',                category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'J10', brand:'풀풀',                 brandEn:'PULPUL',                      category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'L02', brand:'라이플페이퍼코',        brandEn:'RIFLE PAPER CO.',             category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'L04', brand:'지헤이',               brandEn:'GEEHEY',                      category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  {booth:'L06', brand:'쉬아뚤리에',           brandEn:'SUATELIER',                   category:'SMALL THING',        instagram:'', hall:'HALL1'},
+  // ── WRITING & DRAWING ───────────────────────
+  {booth:'A03', brand:'파버카스텔',           brandEn:'FABER-CASTELL',               category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A04', brand:'카키모리',             brandEn:'KAKIMORI',                    category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A05', brand:'흑심',                 brandEn:'BLACKHEART',                  category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A08', brand:'까렌다쉬',             brandEn:"CARAN D'ACHE",               category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A09', brand:'세일러',               brandEn:'SAILOR',                      category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A10', brand:'쉴드컬러스',           brandEn:'SHIELDCOLORS',                category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'A11', brand:'코픽',                 brandEn:'COPIC',                       category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'C02', brand:'웨어링걸',             brandEn:'WEARINGEUL',                  category:'WRITING & DRAWING',  instagram:'', hall:'HALL2'},
+  {booth:'E01', brand:'도미넌트인더스트리',    brandEn:'DOMINANT INDUSTRY',           category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'E04', brand:'한국파이롯트',          brandEn:'KOREA PILOT',                 category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'F06', brand:'제브라',               brandEn:'ZEBRA',                       category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'J01', brand:'유니',                 brandEn:'UNI',                         category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'J07', brand:'자크 에르뱅',          brandEn:'JACQUES HERBIN',              category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'L01', brand:'지구화학',             brandEn:'GLOBE CHEMICAL',              category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  {booth:'L03', brand:'클립펜',               brandEn:'CLIPEN',                      category:'WRITING & DRAWING',  instagram:'', hall:'HALL1'},
+  // ── WORKSHOP & SHOWCASE ─────────────────────
+  {booth:'A07', brand:'더한글',               brandEn:'THE HANGEUL',                 category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL2'},
+  {booth:'B07', brand:'서울디자인재단',        brandEn:'SEOUL DESIGN FOUNDATION',     category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL2'},
+  {booth:'C07', brand:'파티',                 brandEn:'PaTI',                        category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL2'},
+  {booth:'C09', brand:'삼원페이퍼 워크숍',    brandEn:'SAMWON PAPER WORKSHOP',       category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL2'},
+  {booth:'D04', brand:'키오스크키오스크 문구클럽', brandEn:'KIOSSKIOSK MUNGU CLUB & WORKSHOP', category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL2'},
+  {booth:'L09', brand:'트래블러스컴퍼니 워크숍', brandEn:"TRAVELER'S COMPANY WORKSHOP", category:'WORKSHOP & SHOWCASE', instagram:'', hall:'HALL1'},
+  // ── DAILY FINDS ─────────────────────────────
+  {booth:'A06', brand:'포인트오브뷰',          brandEn:'POV',                         category:'DAILY FINDS',        instagram:'', hall:'HALL2'},
+  {booth:'B01', brand:'포인트오브뷰 × 헬로키티', brandEn:'POV × HELLO KITTY',         category:'DAILY FINDS',        instagram:'', hall:'HALL2'},
+  {booth:'B04', brand:'텐스',                 brandEn:'THENCE',                      category:'DAILY FINDS',        instagram:'', hall:'HALL2'},
+  {booth:'B05', brand:'밋미',                 brandEn:'MEET ME',                     category:'DAILY FINDS',        instagram:'', hall:'HALL2'},
+  {booth:'D03', brand:'노빅딜',               brandEn:'NOBIGDEAL',                   category:'DAILY FINDS',        instagram:'', hall:'HALL2'},
+  {booth:'E02', brand:'공예가',               brandEn:'GONGYEGA',                    category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'F04', brand:'티에토아',             brandEn:'TIETOA',                      category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'F05', brand:'키티버니포니',          brandEn:'KITTY BUNNY PONY',            category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'G04', brand:'오, 롤리데이!',         brandEn:'OH, LOLLY DAY!',              category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'G05', brand:'웬아이워즈영',          brandEn:'WHENIWASYOUNG',               category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'H03', brand:'유어마인드',            brandEn:'YOUR-MIND',                   category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'H04', brand:'원모어백',             brandEn:'onemorebag',                  category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'H08', brand:'세일러즈',             brandEn:'SAILORS',                     category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'J05', brand:'하우키즈풀',            brandEn:'HOWkidsFUL',                  category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'J06', brand:'프란츠',               brandEn:'FRANZ',                       category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'L07', brand:'서커스보이밴드',        brandEn:'CIRCUS BOY BAND',             category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  {booth:'L08', brand:'트래블러스컴퍼니',      brandEn:"TRAVELER'S COMPANY",          category:'DAILY FINDS',        instagram:'', hall:'HALL1'},
+  // ── PAPER ───────────────────────────────────
+  {booth:'A01', brand:'두성종이',             brandEn:'DOOSUNG PAPER',               category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'A12', brand:'페이퍼테일러',          brandEn:'PAPER TAILOR',                category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'C04', brand:'그린디자인칙스 공장',   brandEn:'GONGANG',                     category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'C05', brand:'모스',                 brandEn:'MOHS',                        category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'C06', brand:'오체크',               brandEn:'O-CHECK',                     category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'C08', brand:['한솔제지','어반북스'], brandEn:['HANSOL PAPER','URBANBOOKS'], category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'C10', brand:'삼원페이퍼',           brandEn:'SAMWON PAPER',                category:'PAPER',              instagram:'', hall:'HALL2'},
+  {booth:'G02', brand:'비온뒤',               brandEn:'BE ON D',                     category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'H01', brand:'가위',                 brandEn:'KAWI',                        category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I01', brand:'트롤스페이퍼',          brandEn:'TROLLS PAPER',                category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I02', brand:'양지사',               brandEn:'YANGJISA',                    category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I03', brand:'소소문구',             brandEn:'SOSOMOONGOO',                 category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I04', brand:'오이뮤',               brandEn:'OIMU',                        category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I05', brand:'페이퍼플레이트',        brandEn:'PAPER PLATE',                 category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'I07', brand:'글월',                 brandEn:'GEULWOL',                     category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'J02', brand:'컴포지션 스튜디오',    brandEn:'COMPOSITION STUDIO',           category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'J04', brand:'몰스킨',               brandEn:'MOLESKINE',                   category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'J07b',brand:'로디아',               brandEn:'RHODIA',                      category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'J11', brand:'페이퍼리안',            brandEn:'PAPERIAN',                    category:'PAPER',              instagram:'', hall:'HALL1'},
+  {booth:'L02b',brand:'더컴플리티스트',        brandEn:'THE COMPLETIST',              category:'PAPER',              instagram:'', hall:'HALL1'},
+  // ── OFFICE & DESK ───────────────────────────
+  {booth:'B08', brand:'펜코',                 brandEn:'PENCO',                       category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'C01', brand:'로지텍',               brandEn:'LOGITECH',                    category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'C11', brand:'고쿠요',               brandEn:'KOKUYO',                      category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'D01', brand:'일룸',                 brandEn:'ILOOM',                       category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'D02', brand:'일룸',                 brandEn:'ILOOM',                       category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'D05', brand:'워크인프로그레스',      brandEn:'WIP',                         category:'OFFICE & DESK',      instagram:'', hall:'HALL2'},
+  {booth:'E06', brand:'바이하츠',             brandEn:'BUYHEARTS',                   category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'F02', brand:'매거진C',              brandEn:'MAGAZINE C',                  category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'G01', brand:'낼나',                 brandEn:'NELNA',                       category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'I06', brand:'모트모트',             brandEn:'MOTEMOTE',                    category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'J08', brand:'플러스',               brandEn:'PLUS',                        category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'L02c',brand:'크래프트디자인테크놀로지', brandEn:'CRAFT DESIGN TECHNOLOGY',  category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  {booth:'L05', brand:'산로',                 brandEn:'SANRO',                       category:'OFFICE & DESK',      instagram:'', hall:'HALL1'},
+  // ── KIOSK ───────────────────────────────────
+  {booth:'K01', brand:'마크스',               brandEn:"MARK'S",                      category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K02', brand:'오우이',               brandEn:'OUIE',                        category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K03', brand:'민도비또',             brandEn:'MINDOBITTO',                  category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K04', brand:'화랑',                 brandEn:'HWARANG',                     category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K05', brand:'동키콩테',             brandEn:'DONKY CONTÉ',                 category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K06', brand:'안테리크',             brandEn:'ANTERIQUE',                   category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K07', brand:'수이구아슈',            brandEn:'SUI GOUACHE',                 category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K08', brand:'냥냥님',               brandEn:'MEWMEWBEAM',                  category:'KIOSK',              instagram:'', hall:'HALL1'},
+  {booth:'K09', brand:'노용원 석판화',         brandEn:'NOH YONG-WON',               category:'KIOSK',              instagram:'', hall:'HALL1'},
+  // ── COMMON ──────────────────────────────────
+  {booth:'M01', brand:'네이버 라운지',         brandEn:'NAVER LOUNGE',                category:'COMMON',             instagram:'', hall:'LOUNGE'},
+  {booth:'M02', brand:'리마스터드',            brandEn:'REMASTERED',                  category:'COMMON',             instagram:'', hall:'LOUNGE'},
+  {booth:'M03', brand:'레이어스투게더',         brandEn:'Layers Together',             category:'COMMON',             instagram:'', hall:'OUTSIDE'},
+  {booth:'M04', brand:'휴게공간',              brandEn:'LOUNGE',                      category:'COMMON',             instagram:'', hall:'HALL1'},
+];
+
+/* ══════════════════════════════════════════════
+   히트박스 위치 [left%, top%, width%, height%]
+   기준: 2126×692 이미지
+══════════════════════════════════════════════ */
+const POS = {
+  'M03':[1.3,66.5,3.4,22.4],
+  'C10':[5.0,9.0,3.5,12.4],'C09':[8.7,9.0,3.5,12.4],'C08':[12.5,9.0,3.5,12.4],
+  'C07':[16.2,9.0,3.5,12.4],'C06':[19.9,9.0,3.5,12.4],'C05':[23.6,9.0,3.5,12.4],
+  'D05':[27.3,9.0,3.3,12.4],'D04':[30.7,9.0,5.0,12.4],'D03':[35.8,9.0,3.3,12.4],
+  'C11':[5.0,22.1,3.5,12.4],'C04':[19.9,22.1,3.5,12.4],
+  'D01':[27.3,22.1,3.3,12.4],'D02':[30.7,22.1,3.3,12.4],
+  'C01':[5.0,35.3,3.5,12.4],'C02':[8.7,35.3,14.0,28.0],'C03':[23.0,35.3,7.5,28.0],
+  'A12':[5.0,64.7,3.5,11.8],'A11':[8.7,64.7,3.5,11.8],'A10':[12.5,64.7,3.5,11.8],
+  'A09':[16.2,64.7,3.5,11.8],'A08':[19.9,64.7,3.5,11.8],'A07':[23.6,64.7,3.5,11.8],
+  'B08':[27.4,64.7,3.2,11.8],'B07':[30.8,64.7,5.3,11.8],'B06':[36.2,64.7,5.1,11.8],
+  'A01':[5.0,76.6,3.5,11.8],'A02':[8.7,76.6,3.5,11.8],'A03':[12.5,76.6,3.5,11.8],
+  'A04':[16.2,76.6,3.5,11.8],'A05':[19.9,76.6,3.5,11.8],'A06':[23.6,76.6,3.5,11.8],
+  'B01':[27.4,76.6,2.0,11.8],'B02':[29.5,76.6,2.0,11.8],'B03':[31.6,76.6,2.0,11.8],
+  'B04':[33.7,76.6,2.0,11.8],'B05':[35.8,76.6,2.0,11.8],
+  'M02':[39.7,9.0,6.5,12.4],'M01':[39.7,22.1,6.5,57.8],'M04':[91.8,3.5,4.5,7.5],
+  'L09':[83.7,3.5,5.5,7.5],
+  'K06':[49.0,12.7,2.6,9.8],'K07':[51.9,12.7,2.6,9.8],
+  'K08':[90.7,12.7,2.6,9.8],'K09':[93.3,12.7,2.6,9.8],
+  'L08':[80.4,12.7,3.5,11.8],'L07':[84.0,12.7,3.5,11.8],'L06':[87.4,12.7,3.5,11.8],
+  'L05':[96.3,12.7,3.5,25.4],
+  'K05':[46.6,24.9,2.6,6.1],'K04':[46.6,37.3,2.6,6.1],
+  'K03':[46.6,49.9,2.6,6.1],'K02':[46.6,74.9,2.6,6.1],'K01':[46.6,81.6,2.6,6.1],
+  'E01':[49.4,24.9,3.4,12.1],'E02':[52.9,24.9,3.4,12.1],
+  'E03':[56.4,24.9,3.4,12.1],'E04':[59.9,24.9,3.4,12.1],
+  'F01':[64.8,24.9,3.4,12.1],'F02':[68.3,24.9,3.4,12.1],'F03':[71.8,24.9,3.4,12.1],
+  'F04':[75.3,24.9,3.4,12.1],'F05':[78.8,24.9,3.4,12.1],'F06':[82.3,24.9,3.4,12.1],
+  'E06':[49.4,37.3,3.4,12.1],'E05':[52.9,37.3,3.4,12.1],
+  'F09':[63.4,37.3,3.4,12.1],'F08':[66.9,37.3,3.4,12.1],'F07':[70.4,37.3,3.4,12.1],
+  'L04':[96.3,37.3,3.5,12.1],
+  'G01':[49.4,49.9,3.4,12.1],'G02':[52.9,49.9,3.4,12.1],'G03':[56.4,49.9,3.4,12.1],
+  'G04':[61.3,49.9,3.4,12.1],
+  'H02':[66.3,49.9,3.4,12.1],'H03':[69.8,49.9,3.4,12.1],'H04':[73.3,49.9,3.4,12.1],
+  'H05':[76.8,49.9,3.4,12.1],'H06':[80.3,49.9,3.4,12.1],
+  'L02':[94.0,49.9,3.5,12.1],'L02b':[94.0,62.3,3.5,12.1],
+  'G07':[49.4,62.3,3.4,12.1],'G06':[52.9,62.3,3.4,12.1],'G05':[56.4,62.3,3.4,12.1],
+  'H01':[64.8,62.3,3.4,12.1],
+  'H09':[71.8,62.3,3.4,12.1],'H08':[75.3,62.3,3.4,12.1],'H07':[78.8,62.3,3.4,12.1],
+  'I02':[52.9,74.9,3.4,6.1],'I03':[56.4,74.9,3.4,6.1],'I04':[61.3,74.9,3.4,6.1],
+  'J02':[66.3,74.9,3.4,6.1],'J03':[69.8,74.9,3.4,6.1],'J04':[73.3,74.9,3.4,6.1],
+  'J05':[80.8,74.9,3.4,6.1],'L03':[96.3,74.9,3.5,6.1],
+  'I01':[49.4,81.6,3.4,6.1],'I06':[52.9,81.6,3.4,6.1],'I05':[56.4,81.6,3.4,6.1],
+  'J01':[63.4,81.6,3.4,6.1],
+  'J08':[71.8,81.6,3.4,6.1],'J07':[75.3,81.6,3.4,6.1],'J06':[78.8,81.6,3.4,6.1],
+  'L02c':[96.3,81.6,3.5,6.1],
+  'I07':[49.4,88.0,3.4,5.5],'I08':[52.9,88.0,3.4,5.5],'I09':[59.0,88.0,3.4,5.5],
+  'J09':[66.3,88.0,3.4,5.5],'J10':[69.8,88.0,3.4,5.5],'J11':[76.4,88.0,3.4,5.5],
+  'L01':[96.3,88.0,3.5,5.5],
+};
+const OVAL_BOOTHS = new Set(['K01','K02','K03','K04','K05','K06','K07','K08','K09']);
+
+/* ══════════════════════════════════════════════
+   초성 검색
+══════════════════════════════════════════════ */
+const CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+function getChosung(s){return s.split('').map(c=>{const n=c.charCodeAt(0)-0xAC00;return(n>=0&&n<=11171)?CHO[Math.floor(n/28/21)]:c}).join('')}
+function nm(s){return(s||'').toLowerCase().replace(/\s/g,'')}
+
+function boothMatch(b, q){
+  if(!q) return true;
+  const nq = nm(q);
+  const brands = Array.isArray(b.brand) ? b.brand : [b.brand];
+  const brandEns = Array.isArray(b.brandEn) ? b.brandEn : [b.brandEn];
+  return (
+    nm(b.booth).includes(nq) ||
+    brands.some(br => nm(br).includes(nq) || getChosung(br).includes(getChosung(q))) ||
+    brandEns.some(be => nm(be).includes(nq))
+  );
+}
+
+function brandDisplayName(b){
+  if(Array.isArray(b.brand)) return b.brand.join(' · ');
+  return b.brand;
+}
+function brandEnDisplayName(b){
+  if(Array.isArray(b.brandEn)) return b.brandEn.join(' · ');
+  return b.brandEn;
+}
+
+/* ══════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════ */
+let curFilter = 'ALL';
+let favorites = new Set(JSON.parse(localStorage.getItem('favorites') || '[]'));
+let memos = JSON.parse(localStorage.getItem('shoppingNotes') || '[]');
+let curModal = null;
+
+function saveFavs(){ localStorage.setItem('favorites', JSON.stringify([...favorites])) }
+function saveMemos(){ localStorage.setItem('shoppingNotes', JSON.stringify(memos)) }
+
+/* ══════════════════════════════════════════════
+   THEME
+══════════════════════════════════════════════ */
+const TSW = {white:'#e0e0e0', black:'#1c1c1c', pastel:'#ffb8d0'};
+const TLB = {white:'White', black:'Black', pastel:'Pastel'};
+function setTheme(t){
+  document.body.setAttribute('data-theme', t);
+  document.getElementById('tsw').style.background = TSW[t];
+  document.getElementById('tlbl').textContent = '🎨 ' + TLB[t];
+  document.querySelectorAll('.topt').forEach(o => o.classList.toggle('on', o.dataset.t === t));
+}
+function goTop(){ window.scrollTo({top:0, behavior:'smooth'}) }
+function goSec(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'}) }
+
+/* ══════════════════════════════════════════════
+   카테고리 칩 렌더
+══════════════════════════════════════════════ */
+function renderCatChips(containerId){
+  const el = document.getElementById(containerId);
+  el.innerHTML = CATS.map(c => {
+    const col = CAT_COLOR[c] || '';
+    const on = c === curFilter;
+    const dot = col ? `<div class="cdot" style="background:${col}"></div>` : '';
+    const sty = on ? (col ? `background:${col};color:#fff;border-color:${col}` : `background:var(--tx);color:var(--bg);border-color:var(--tx)`) : '';
+    return `<button class="chip${on?' on':''}" style="${sty}" onclick="setFilter('${c}')">${dot}${c}</button>`;
+  }).join('');
+}
+
+function setFilter(cat){
+  curFilter = cat;
+  renderCatChips('map-cats');
+  renderCatChips('brand-cats');
+  updateHitboxDim();
+  renderBrands();
+}
+
+/* ══════════════════════════════════════════════
+   히트박스 렌더
+══════════════════════════════════════════════ */
+function renderHitboxes(){
+  const container = document.getElementById('hitboxes');
+  container.innerHTML = booths.filter(b => POS[b.booth]).map(b => {
+    const p = POS[b.booth];
+    const oval = OVAL_BOOTHS.has(b.booth) ? ' oval' : '';
+    return `<div class="hb${oval}${favorites.has(b.booth)?' fav':''}"
+      id="hb-${b.booth}"
+      style="left:${p[0]}%;top:${p[1]}%;width:${p[2]}%;height:${p[3]}%"
+      onclick="openModal('${b.booth}')"
+      title="${brandDisplayName(b)}"></div>`;
+  }).join('');
+  updateHitboxDim();
+}
+
+function updateHitboxDim(){
+  document.querySelectorAll('.hb[id]').forEach(el => {
+    const boothId = el.id.replace('hb-','');
+    const b = booths.find(x => x.booth === boothId);
+    const matches = curFilter === 'ALL' || (b && b.category === curFilter);
+    el.classList.toggle('dim', !matches);
+  });
+}
+
+function updateHitboxFav(boothId){
+  const el = document.getElementById('hb-' + boothId);
+  if(el) el.classList.toggle('fav', favorites.has(boothId));
+}
+
+/* ══════════════════════════════════════════════
+   범례
+══════════════════════════════════════════════ */
+function renderLegend(){
+  document.getElementById('map-legend').innerHTML =
+    Object.entries(CAT_COLOR).map(([z,c]) =>
+      `<div class="mleg"><div class="mlegdot" style="background:${c}"></div>${z}</div>`
+    ).join('');
+}
+
+/* ══════════════════════════════════════════════
+   찜한 브랜드
+══════════════════════════════════════════════ */
+function renderFavs(){
+  const el = document.getElementById('fav-area');
+  const favList = booths.filter(b => favorites.has(b.booth));
+  if(!favList.length){
+    el.innerHTML = '<div class="fav-empty">아직 찜한 부스가 없어요 ⭐<br><span style="font-size:12px;margin-top:4px;display:block">부스를 눌러서 ☆ 찜 버튼을 눌러보세요</span></div>';
+    return;
+  }
+  el.innerHTML = `<div class="fav-list">${
+    favList.map(b => {
+      const col = CAT_COLOR[b.category] || '#888';
+      return `<button class="fav-chip" onclick="openModal('${b.booth}')">
+        <div class="fav-dot" style="background:${col}"></div>
+        <span>⭐ ${brandDisplayName(b)}</span>
+        <span style="font-size:10px;color:var(--tx3);margin-left:4px">${b.booth}</span>
+      </button>`;
+    }).join('')
+  }</div>`;
+}
+
+/* ══════════════════════════════════════════════
+   브랜드 목록
+══════════════════════════════════════════════ */
+function renderBrands(){
+  const board = document.getElementById('brand-board');
+  const grouped = {};
+  booths.forEach(b => { (grouped[b.category] = grouped[b.category] || []).push(b) });
+  board.innerHTML = Object.entries(grouped).map(([cat, items]) => {
+    const col = CAT_COLOR[cat] || '#888';
+    return `<div class="zblock">
+      <div class="zhdr">
+        <div class="zhdot" style="background:${col}"></div>
+        <span class="zhname">${cat}</span>
+        <span class="zhcnt">${items.length}개</span>
+      </div>
+      <div class="cgrid">${items.map(b => brandCard(b, col)).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function brandCard(b, col){
+  const fav = favorites.has(b.booth);
+  const active = curFilter === 'ALL' || b.category === curFilter;
+  const kr = brandDisplayName(b);
+  const en = brandEnDisplayName(b);
+  return `<div class="bcard${fav?' fav':''}${!active?' dim-b':''}" style="--zc:${col}" onclick="openModal('${b.booth}')">
+    <div class="bc-booth" style="color:${col}">${b.booth}</div>
+    <div class="bc-kr">${kr}</div>
+    <div class="bc-en">${en}</div>
+    <div class="bc-acts" onclick="event.stopPropagation()">
+      <button class="bc-btn${fav?' on':''}" onclick="toggleFav('${b.booth}')">${fav?'⭐':'☆'} 찜</button>
+    </div>
+  </div>`;
+}
+
+/* ══════════════════════════════════════════════
+   찜 토글
+══════════════════════════════════════════════ */
+function toggleFav(boothId){
+  favorites.has(boothId) ? favorites.delete(boothId) : favorites.add(boothId);
+  saveFavs();
+  updateHitboxFav(boothId);
+  renderFavs();
+  renderBrands();
+  updateStats();
+  if(curModal === boothId) renderModalActions(boothId);
+}
+
+/* ══════════════════════════════════════════════
+   통계
+══════════════════════════════════════════════ */
+function updateStats(){
+  document.getElementById('cnt-fav').textContent = favorites.size;
+  const mc = memos.length;
+  document.getElementById('cnt-memo').textContent = mc;
+  const badge = document.getElementById('fab-badge');
+  badge.textContent = mc; badge.classList.toggle('show', mc > 0);
+}
+
+/* ══════════════════════════════════════════════
+   검색
+══════════════════════════════════════════════ */
+let searchTimer = null;
+function onSearch(q){
+  document.getElementById('sclr').style.display = q ? 'flex' : 'none';
+  clearTimeout(searchTimer);
+  if(!q){ document.getElementById('search-results').innerHTML = ''; return; }
+  searchTimer = setTimeout(() => doSearch(q), 300);
+}
+function clearSearch(){
+  const inp = document.getElementById('search-inp');
+  inp.value = ''; inp.focus();
+  onSearch('');
+}
+function doSearch(q){
+  const results = booths.filter(b => boothMatch(b, q));
+  const el = document.getElementById('search-results');
+  if(!results.length){
+    el.innerHTML = '<div class="nores" style="margin-top:1rem">검색 결과가 없어요</div>';
+    return;
+  }
+  const col0 = CAT_COLOR[results[0].category] || '#888';
+  el.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:1rem">${
+    results.map(b => {
+      const col = CAT_COLOR[b.category] || '#888';
+      return `<button style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid var(--br);background:var(--sf);color:var(--tx);font-size:13px;cursor:pointer;min-height:44px;transition:all .15s" onclick="searchSelect('${b.booth}')" onmouseenter="this.style.borderColor='${col}'" onmouseleave="this.style.borderColor='var(--br)'">
+        <div style="width:7px;height:7px;border-radius:50%;background:${col};flex-shrink:0"></div>
+        <span style="font-weight:600">${b.booth}</span>
+        <span>${brandDisplayName(b)}</span>
+      </button>`;
+    }).join('')
+  }</div>`;
+}
+
+function searchSelect(boothId){
+  // 배치도 섹션으로 스크롤
+  document.getElementById('sec-map').scrollIntoView({behavior:'smooth', block:'start'});
+  setTimeout(() => {
+    const hb = document.getElementById('hb-' + boothId);
+    // 가로 스크롤 맵 안에서 해당 부스 위치로 이동
+    const mscroll = document.querySelector('.map-scroll');
+    const mwrap = document.getElementById('map-wrap');
+    if(hb && mscroll && mwrap){
+      const p = POS[boothId];
+      if(p) mscroll.scrollLeft = Math.max(0, (p[0]/100)*mwrap.offsetWidth - mscroll.offsetWidth/2);
+    }
+    // 하이라이트 시작
+    if(hb){
+      hb.classList.add('search-hl');
+      // 2.5초 하이라이트 후 제거
+      setTimeout(() => hb.classList.remove('search-hl'), 2500);
+    }
+    // 300ms 후 모달 자동 열기
+    setTimeout(() => openModal(boothId), 300);
+  }, 600);
+}
+
+/* ══════════════════════════════════════════════
+   모달
+══════════════════════════════════════════════ */
+function openModal(boothId){
+  const b = booths.find(x => x.booth === boothId);
+  if(!b) return;
+  curModal = boothId;
+  const col = CAT_COLOR[b.category] || '#888';
+  document.getElementById('m-cat').textContent = b.category;
+  document.getElementById('m-cat').style.cssText = `background:${col}22;color:${col};display:inline-block;font-size:11px;padding:4px 12px;border-radius:999px;margin-bottom:.875rem;font-weight:600`;
+  document.getElementById('m-booth').textContent = b.booth;
+  document.getElementById('m-booth').style.color = col;
+  document.getElementById('m-brand').textContent = brandDisplayName(b);
+  document.getElementById('m-brand-en').textContent = brandEnDisplayName(b);
+  renderModalActions(boothId);
+  document.getElementById('modal-ov').classList.add('open');
+}
+function renderModalActions(boothId){
+  const b = booths.find(x => x.booth === boothId);
+  if(!b) return;
+  const fav = favorites.has(boothId);
+  const col = CAT_COLOR[b.category] || '#888';
+  let html = `
+    <button class="m-btn${fav?' fav-on':''}" onclick="toggleFav('${boothId}')">
+      ${fav ? '⭐ 찜됨' : '☆ 찜하기'}
+    </button>
+    <button class="m-btn" onclick="openMemoForBooth('${boothId}');closeModal()">
+      📝 쇼핑 메모 추가
+    </button>`;
+  if(b.instagram){
+    html += `<button class="m-btn ig" onclick="window.open('https://instagram.com/${b.instagram}','_blank')">📸 Instagram 보기</button>`;
+  }
+  document.getElementById('m-actions').innerHTML = html;
+}
+function closeModal(){ document.getElementById('modal-ov').classList.remove('open'); curModal = null; }
+
+/* ══════════════════════════════════════════════
+   메모
+══════════════════════════════════════════════ */
+let pendingBoothMemo = null;
+function openMemo(){ document.getElementById('memo-ov').classList.add('open'); renderMemoList(); }
+function closeMemo(){ document.getElementById('memo-ov').classList.remove('open'); pendingBoothMemo = null; }
+function openMemoForBooth(boothId){
+  const b = booths.find(x => x.booth === boothId);
+  if(b){ const inp = document.getElementById('memo-inp'); inp.value = brandDisplayName(b) + ' — '; pendingBoothMemo = boothId; }
+  openMemo();
+  setTimeout(() => { const inp = document.getElementById('memo-inp'); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }, 350);
+}
+function addMemo(){
+  const inp = document.getElementById('memo-inp');
+  const t = inp.value.trim();
+  if(!t) return;
+  const b = pendingBoothMemo ? booths.find(x => x.booth === pendingBoothMemo) : null;
+  memos.push({id:Date.now(), text:t, boothId:b?.booth||null, boothName:b?brandDisplayName(b):null, boothCat:b?.category||null, done:false});
+  inp.value = ''; pendingBoothMemo = null;
+  saveMemos(); renderMemoList(); updateStats();
+}
+function toggleMemo(id){ const m = memos.find(x=>x.id===id); if(m){ m.done=!m.done; saveMemos(); renderMemoList(); } }
+function delMemo(id){ memos = memos.filter(x=>x.id!==id); saveMemos(); renderMemoList(); updateStats(); }
+function renderMemoList(){
+  const el = document.getElementById('memo-list');
+  if(!memos.length){ el.innerHTML = '<div class="memo-empty">메모가 없어요 📝</div>'; return; }
+  el.innerHTML = memos.map(m => {
+    const col = m.boothCat ? (CAT_COLOR[m.boothCat] || '#888') : '#aaa';
+    return `<div class="memo-item">
+      <div class="memo-chk${m.done?' done':''}" onclick="toggleMemo(${m.id})">${m.done?'✓':''}</div>
+      <div style="flex:1;min-width:0">
+        ${m.boothName ? `<div class="memo-brand" style="background:${col}">${m.boothId} ${m.boothName}</div>` : ''}
+        <div class="memo-txt${m.done?' done':''}">${m.text}</div>
+      </div>
+      <button class="memo-del" onclick="delMemo(${m.id})">×</button>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════
+   초기화
+══════════════════════════════════════════════ */
+setTheme('white');
+renderLegend();
+renderHitboxes();
+renderCatChips('map-cats');
+renderCatChips('brand-cats');
+renderFavs();
+renderBrands();
+updateStats();
+</script>
+</body>
+</html>
